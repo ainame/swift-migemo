@@ -47,7 +47,7 @@ public final class Migemo {
         migemo_close(handle)
     }
 
-    public func expand(_ query: String) throws -> String {
+    public func regexPattern(for query: String) throws -> String {
         guard !query.isEmpty else {
             throw MigemoError.emptyQuery
         }
@@ -75,8 +75,8 @@ public final class Migemo {
     }
 
     @available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
-    public func compileRegex(_ query: String) throws -> Regex<AnyRegexOutput> {
-        try Regex(try expand(query))
+    public func regex(for query: String) throws -> Regex<AnyRegexOutput> {
+        try Regex(try regexPattern(for: query))
     }
 
     private static func dictionaryPath(for source: DictionarySource) throws -> String {

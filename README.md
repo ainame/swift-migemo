@@ -30,7 +30,7 @@ This package provides:
 import Migemo
 
 let migemo = try Migemo() // Uses bundled dictionary by default
-let pattern = try migemo.expand("kensaku")
+let pattern = try migemo.regexPattern(for: "kensaku")
 ```
 
 Compile as Swift Regex:
@@ -39,7 +39,7 @@ Compile as Swift Regex:
 import Migemo
 
 let migemo = try Migemo()
-let regex = try migemo.compileRegex("kensaku")
+let regex = try migemo.regex(for: "kensaku")
 ```
 
 Use your own dictionary directory:
@@ -63,8 +63,8 @@ The directory must contain these files:
 
 - `Migemo.init(options:)`
 - `Migemo.init(dictionaryPath:)`
-- `Migemo.expand(_:) -> String`
-- `Migemo.compileRegex(_:) -> Regex<AnyRegexOutput>`
+- `Migemo.regexPattern(for:) -> String`
+- `Migemo.regex(for:) -> Regex<AnyRegexOutput>`
 
 Errors are exposed via `MigemoError`.
 
