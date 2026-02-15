@@ -12,7 +12,7 @@ This package provides:
 ```swift
 // Package.swift
 .dependencies: [
-    .package(url: "https://github.com/ainame/swift-migemo", from: "0.1.0")
+    .package(url: "https://github.com/ainame/swift-migemo", from: "0.0.1")
 ],
 .targets: [
     .target(
