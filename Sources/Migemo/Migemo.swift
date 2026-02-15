@@ -1,7 +1,7 @@
 import CMigemoC
 import Foundation
 
-public enum MigemoError: Error, Sendable {
+public enum MigemoError: Error, Sendable, Equatable {
     case dictionaryNotFound(path: String)
     case dictionaryLoadFailed(path: String)
     case emptyQuery
@@ -9,8 +9,25 @@ public enum MigemoError: Error, Sendable {
     case invalidPatternEncoding
 }
 
+public enum DictionarySource: Sendable {
+    case bundled
+    case directory(URL)
+}
+
+public struct MigemoOptions: Sendable {
+    public var dictionary: DictionarySource
+
+    public init(dictionary: DictionarySource = .bundled) {
+        self.dictionary = dictionary
+    }
+}
+
 public final class Migemo {
     private let handle: OpaquePointer
+
+    public convenience init(options: MigemoOptions = .init()) throws {
+        try self.init(dictionaryPath: Self.dictionaryPath(for: options.dictionary))
+    }
 
     public init(dictionaryPath: String) throws {
         guard FileManager.default.fileExists(atPath: dictionaryPath) else {
@@ -60,5 +77,20 @@ public final class Migemo {
     @available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
     public func compileRegex(_ query: String) throws -> Regex<AnyRegexOutput> {
         try Regex(try expand(query))
+    }
+
+    private static func dictionaryPath(for source: DictionarySource) throws -> String {
+        switch source {
+        case .bundled:
+            guard let url = Bundle.module.url(
+                forResource: "migemo-dict",
+                withExtension: nil
+            ) else {
+                throw MigemoError.dictionaryNotFound(path: "Bundle.module/migemo-dict")
+            }
+            return url.path
+        case .directory(let directoryURL):
+            return directoryURL.appendingPathComponent("migemo-dict").path
+        }
     }
 }
