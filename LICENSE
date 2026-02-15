@@ -1,0 +1,21 @@
+# License Summary
+
+This repository contains files under different licenses.
+
+## MIT-licensed files
+
+Unless noted below, source code and project files in this repository are licensed under the MIT License in `LICENSE-MIT`.
+
+## Third-party vendored code
+
+- `Sources/CMigemoC/**` and `Vendor/cmigemo/**` are from C/Migemo and are under MIT License.
+  - See `Vendor/cmigemo/LICENSE_MIT.txt`.
+
+## Dictionary assets (GPL-2.0-or-later)
+
+- `Sources/Migemo/Resources/dict/**` contains dictionary data derived from `SKK-JISYO.L`.
+- `SKK-JISYO.L` declares GPL-2.0-or-later terms.
+- The GPL v2 license text is provided at `Vendor/skk/COPYING`.
+- Source attribution and header excerpt are provided at `Vendor/skk/SKK-JISYO.L.HEADER.txt`.
+
+Path-specific license files and notices take precedence for their covered files.

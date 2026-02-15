@@ -70,9 +70,14 @@ Errors are exposed via `MigemoError`.
 
 ## Dictionary and Licensing
 
-- C/Migemo upstream source is vendored under `Sources/CMigemoC`.
-- Upstream license is included at `Vendor/cmigemo/LICENSE_MIT.txt`.
-- Bundled dictionary provenance is documented at `Vendor/cmigemo/DICTIONARY_SOURCE.md`.
+- Repository license summary is in `LICENSE`.
+- Project MIT license is in `LICENSE-MIT`.
+- Third-party attribution is in `THIRD_PARTY_NOTICES.md`.
+- C/Migemo upstream source is vendored under `Sources/CMigemoC` (MIT): `Vendor/cmigemo/LICENSE_MIT.txt`.
+- Bundled dictionary files are derived from SKK `SKK-JISYO.L` and are documented with GPL notices:
+  - `Vendor/cmigemo/DICTIONARY_SOURCE.md`
+  - `Vendor/skk/SKK-JISYO.L.HEADER.txt`
+  - `Vendor/skk/COPYING`
 
 ## Development
 

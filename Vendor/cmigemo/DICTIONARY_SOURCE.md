@@ -14,3 +14,8 @@ iconv -f cp932 -t utf-8 dict/hira2kata.dat > hira2kata.dat
 iconv -f cp932 -t utf-8 dict/han2zen.dat > han2zen.dat
 iconv -f cp932 -t utf-8 dict/zen2han.dat > zen2han.dat
 ```
+
+Licensing note:
+- `migemo-dict` is derived from `SKK-JISYO.L`.
+- `SKK-JISYO.L` declares GPL-2.0-or-later in its header.
+- See `Vendor/skk/SKK-JISYO.L.HEADER.txt` and `Vendor/skk/COPYING`.
