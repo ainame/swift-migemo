@@ -31,14 +31,6 @@ import Migemo
 
 let migemo = try Migemo() // Uses bundled dictionary by default
 let pattern = try migemo.regexPattern(for: "kensaku")
-```
-
-Compile as Swift Regex:
-
-```swift
-import Migemo
-
-let migemo = try Migemo()
 let regex = try migemo.regex(for: "kensaku")
 ```
 
