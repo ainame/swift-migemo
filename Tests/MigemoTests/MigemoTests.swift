@@ -4,7 +4,7 @@ import Foundation
 
 @Test func bundledDictionaryExpand() throws {
     let migemo = try Migemo()
-    let pattern = try migemo.regexPattern(for: "kensaku")
+    let pattern = try migemo.expand("kensaku")
     #expect(!pattern.isEmpty)
     #expect(pattern.contains("検索"))
 }
@@ -12,7 +12,7 @@ import Foundation
 @Test func emptyQueryThrows() throws {
     let migemo = try Migemo()
     #expect(throws: MigemoError.emptyQuery) {
-        _ = try migemo.regexPattern(for: "")
+        _ = try migemo.expand("")
     }
 }
 
@@ -25,7 +25,7 @@ import Foundation
 
 @Test func realExampleNihonContainsKanjiCandidate() throws {
     let migemo = try Migemo()
-    let pattern = try migemo.regexPattern(for: "nihon")
+    let pattern = try migemo.expand("nihon")
     #expect(pattern.contains("日本"))
 }
 
@@ -60,7 +60,7 @@ import Foundation
     }
 
     let migemo = try Migemo(options: .init(dictionary: .directory(tempDictDir)))
-    let pattern = try migemo.regexPattern(for: "kensaku")
+    let pattern = try migemo.expand("kensaku")
     #expect(pattern.contains("検索"))
 }
 
@@ -77,7 +77,7 @@ import Foundation
         .appendingPathComponent("migemo-dict")
         .path
     let migemo = try Migemo(dictionaryPath: dictPath)
-    let pattern = try migemo.regexPattern(for: "tokyo")
+    let pattern = try migemo.expand("tokyo")
     #expect(pattern.contains("東京"))
 }
 

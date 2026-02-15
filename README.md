@@ -30,7 +30,7 @@ This package provides:
 import Migemo
 
 let migemo = try Migemo() // Uses bundled dictionary by default
-let pattern: String = try migemo.regexPattern(for: "kensaku")
+let pattern: String = try migemo.expand("kensaku")
 let regex: Regex<AnyRegexOutput> = try migemo.regex(for: "kensaku")
 ```
 
@@ -55,7 +55,7 @@ The directory must contain these files:
 
 - `Migemo.init(options:)`
 - `Migemo.init(dictionaryPath:)`
-- `Migemo.regexPattern(for:) -> String`
+- `Migemo.expand(_:) -> String`
 - `Migemo.regex(for:) -> Regex<AnyRegexOutput>`
 
 Errors are exposed via `MigemoError`.
