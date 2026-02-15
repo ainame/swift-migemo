@@ -30,8 +30,8 @@ This package provides:
 import Migemo
 
 let migemo = try Migemo() // Uses bundled dictionary by default
-let pattern = try migemo.regexPattern(for: "kensaku")
-let regex = try migemo.regex(for: "kensaku")
+let pattern: String = try migemo.regexPattern(for: "kensaku")
+let regex: Regex<AnyRegexOutput> = try migemo.regex(for: "kensaku")
 ```
 
 Use your own dictionary directory:
